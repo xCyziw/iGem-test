@@ -8,7 +8,8 @@ class App extends Component {
   state = {
     isLoading: true,
     posts: [],
-    error: null
+    error: null,
+    query: '' // search query
   }
 
   fetchPosts() {
@@ -17,8 +18,7 @@ class App extends Component {
       .then(data =>
         this.setState({
           posts: data,
-          isLoading: false,
-          query: '' // search query
+          isLoading: false
         })
       )
       .catch(error => this.setState({ error, isLoading: false }));
